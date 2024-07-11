@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca1bjuxfksfka"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ur1d8"]
+
+[sub_resource type="Sky" id="Sky_myo8x"]
+sky_material = SubResource("ProceduralSkyMaterial_ur1d8")
+
+[sub_resource type="Environment" id="Environment_17erm"]
+background_mode = 2
+sky = SubResource("Sky_myo8x")
+ssil_enabled = true
+sdfgi_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mf8re"]
+size = Vector2(15, 15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i7sqp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hfsc7"]
+size = Vector3(5, 1, 5)
+
+[node name="MainScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_17erm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.525635, 0.85071, 0, -0.85071, 0.525635, 0, 9.36103, 8.28252)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.895059, 0.445948, 0, -0.445948, 0.895059, 0, 5.08739, 8.29796)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_mf8re")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_i7sqp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.824124, 5.90531, -1.51322)
+mesh = SubResource("BoxMesh_hfsc7")
